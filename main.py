@@ -9,6 +9,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# Root endpoint to check if the backend is running properly
+@app.get("/")
+def read_root():
+    return {"status": "Backend OK 🚀"}
+
+
 # Middleware CORS configuration pour autoriser les requêtes depuis le frontend
 app.add_middleware(
     CORSMiddleware,
